@@ -9,12 +9,13 @@ public class PacStudentController : MonoBehaviour
     Animator Controller;
     public ParticleSystem dust;
 
-    public int pallet = 10;
+    public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         Controller = gameObject.GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -51,6 +52,13 @@ public class PacStudentController : MonoBehaviour
     }
     void createDust(){
         dust.Play();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        speed = speed * -1;
+    }
+    void Enable(){
+        rb.isKinematic = true;
     }
 
 }
