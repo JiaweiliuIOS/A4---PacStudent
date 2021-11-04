@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Walking : MonoBehaviour
+public class PacStudentController : MonoBehaviour
 {
     public float speed = 1.0f;
-    private Vector2 direction = Vector2.zero;
+    private Vector3 direction = Vector3.zero;
     Animator Controller;
+    public ParticleSystem dust;
 
     // Start is called before the first frame update
     void Start()
@@ -16,29 +17,37 @@ public class Walking : MonoBehaviour
 
     void Update()
     {
-        input();
+        lastInput();
         move();
     }
 
-    void input(){
+    void lastInput(){
         
         if (Input.GetKeyDown (KeyCode.D)){
-            direction = Vector2.right;
+            direction = Vector3.right;
             Controller.SetTrigger("Right");
+            createDust();
 
         }else if (Input.GetKeyDown (KeyCode.A)){
-            direction = Vector2.left;
+            direction = Vector3.left;
             Controller.SetTrigger("Left");
+            createDust();
 
         }else if (Input.GetKeyDown (KeyCode.W)){
-            direction = Vector2.up;
+            direction = Vector3.up;
             Controller.SetTrigger("Up");
+            createDust();
 
         }else if (Input.GetKeyDown (KeyCode.S)){
-            direction = Vector2.down;
-            Controller.SetTrigger("Down");}
+            direction = Vector3.down;
+            Controller.SetTrigger("Down");
+            createDust();
+            }
     }
     void move(){
         transform.localPosition += (Vector3)(direction * speed) * Time.deltaTime;
+    }
+    void createDust(){
+        dust.Play();
     }
 }
