@@ -9,6 +9,8 @@ public class PacStudentController : MonoBehaviour
     Animator Controller;
     public ParticleSystem dust;
 
+    public int pallet = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,4 +52,5 @@ public class PacStudentController : MonoBehaviour
     void createDust(){
         dust.Play();
     }
+
 }
