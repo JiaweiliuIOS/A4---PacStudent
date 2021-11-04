@@ -5,7 +5,7 @@ using UnityEngine;
 public class PacStudentController : MonoBehaviour
 {
     public float speed = 1.0f;
-    private Vector3 direction = Vector3.zero;
+    private Vector3 direction = Vector2.zero;
     Animator Controller;
     public ParticleSystem dust;
 
@@ -20,33 +20,33 @@ public class PacStudentController : MonoBehaviour
     void Update()
     {
         lastInput();
-        move();
+        currentInput();
     }
 
     void lastInput(){
         
         if (Input.GetKeyDown (KeyCode.D)){
-            direction = Vector3.right;
+            direction = Vector2.right;
             Controller.SetTrigger("Right");
             createDust();
 
         }else if (Input.GetKeyDown (KeyCode.A)){
-            direction = Vector3.left;
+            direction = Vector2.left;
             Controller.SetTrigger("Left");
             createDust();
 
         }else if (Input.GetKeyDown (KeyCode.W)){
-            direction = Vector3.up;
+            direction = Vector2.up;
             Controller.SetTrigger("Up");
             createDust();
 
         }else if (Input.GetKeyDown (KeyCode.S)){
-            direction = Vector3.down;
+            direction = Vector2.down;
             Controller.SetTrigger("Down");
             createDust();
             }
     }
-    void move(){
+    void currentInput(){
         transform.localPosition += (Vector3)(direction * speed) * Time.deltaTime;
     }
     void createDust(){
