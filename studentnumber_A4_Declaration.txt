@@ -1,7 +1,7 @@
 # Enter the level that you believe you have achieved in Assessment 4
 # This should be in the form of: 30%, 50%, 60%, 70%, 80%, 90%, or 100%
 # If you partly did a level, remove 5% and list it as e.g. 65%
-Level Achieved:
+Level Achieved:65%
 
 # If 100%, describe your Design Innovation in a single paragraph. 
 # If you didn't complete a design innovation, leave this blank
